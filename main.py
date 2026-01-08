@@ -1,6 +1,7 @@
 import streamlit as st
 import tensorflow as tf
 from PIL import Image
+import numpy as np
 
 model = tf.keras.models.load_model("./model.keras")
 def predict_image(f):
