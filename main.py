@@ -1,0 +1,20 @@
+import streamlit as st
+import tf.keras
+from PIL import Image
+
+def predict_image(f):
+    image = Image(f).resize((224,224)).convert("RGB")
+    i1a = image.img_to_array(i1)
+    i1a = i1a / 255.0
+    i1a = np.expand_dims(i1a, axis=0)
+    pred = model.predict(i1a)
+    return "dog" if pred > 0.5 else "cat"
+
+st.title("SSN Classifier")
+
+f = st.file_uploader("Upload image")
+
+if st.button("Classify"):
+    r = predict_image(f)
+    st.image(f, width=400)
+    st.header(f"# **This is image of a :rainbow[{r}]**")
