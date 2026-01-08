@@ -4,7 +4,7 @@ from PIL import Image
 
 model = tf.keras.models.load_model("./model.keras")
 def predict_image(f):
-    image = Image.open(f).resize((224,224)).convert("RGB")
+    i1 = Image.open(f).resize((224,224)).convert("RGB")
     i1a = tf.keras.preprocessing.image.img_to_array(i1)
     i1a = i1a / 255.0
     i1a = np.expand_dims(i1a, axis=0)
